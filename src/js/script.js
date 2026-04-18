@@ -1,3 +1,16 @@
+const splashEl = document.getElementById('splash');
+const bgMusic = document.getElementById('bg-music');
+
+if (splashEl) {
+	document.body.classList.add('splash-open');
+	splashEl.addEventListener('click', () => {
+		bgMusic?.play().catch(() => {});
+		splashEl.classList.add('is-hiding');
+		document.body.classList.remove('splash-open');
+		splashEl.addEventListener('transitionend', () => splashEl.remove(), { once: true });
+	});
+}
+
 const TARGET = new Date('2026-06-06T14:00:00+03:00');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const MAX_DELAY = 8;

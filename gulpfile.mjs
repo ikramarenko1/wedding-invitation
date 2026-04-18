@@ -67,6 +67,10 @@ const paths = {
 	icons: {
 		src: "src/icons/**/*",
 		dist: "dist/icons"
+	},
+	audio: {
+		src: "src/audio/**/*",
+		dist: "dist/audio"
 	}
 };
 
@@ -130,8 +134,13 @@ export const icons = () => gulp.src(paths.icons.src, { encoding: false }) // в�
 	.pipe(gulp.dest(paths.icons.dist)) // положить готовый файл в paths.icons.dist
 	.pipe(browserSync.stream());
 
-// Объединение задач fonts, icons, images и images-to-webp в одну для удобства
-export const assetsActions = gulp.parallel(fonts, icons, images, imagesToWebp);
+// Задачи связанные с аудио
+export const audio = () => gulp.src(paths.audio.src, { encoding: false })
+	.pipe(gulp.dest(paths.audio.dist))
+	.pipe(browserSync.stream());
+
+// Объединение задач fonts, icons, images, images-to-webp и audio в одну для удобства
+export const assetsActions = gulp.parallel(fonts, icons, images, imagesToWebp, audio);
 
 // Инициализация LiveServer
 export const createServer = () => {
@@ -149,6 +158,7 @@ export const watch = () => {
 	gulp.watch(paths.images.srcWebp, imagesToWebp);
 	gulp.watch(paths.fonts.src, fonts);
 	gulp.watch(paths.icons.src, icons);
+	gulp.watch(paths.audio.src, audio);
 }
 
 // DEV build

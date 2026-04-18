@@ -1,0 +1,103 @@
+@use "../base/variables" as *;
+
+.splash-open {
+	overflow: hidden;
+	height: 100%;
+}
+
+.splash {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	background: linear-gradient(160deg, $olive-deep 0%, $olive 100%);
+	cursor: pointer;
+	transition: opacity $trans;
+
+	&.is-hiding {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&__label {
+		font-family: $font-text;
+		font-size: 11px;
+		letter-spacing: 4px;
+		color: rgba($cream, .55);
+		text-transform: uppercase;
+		animation: fadeUp 0.7s ease both 0.3s;
+	}
+
+	&__names {
+		font-family: $font-main;
+		font-size: 52px;
+		color: $cream;
+		line-height: 1;
+		text-align: center;
+		animation: fadeUp 0.7s ease both 0.5s;
+	}
+
+	&__amp {
+		font-family: $font-text;
+		font-size: 24px;
+		opacity: .7;
+	}
+
+	&__divider {
+		width: 60px;
+		height: 1px;
+		background: rgba($cream, .35);
+		animation: fadeUp 0.7s ease both 0.65s;
+	}
+
+	&__date {
+		font-family: $font-text;
+		font-size: 12px;
+		color: rgba($cream, .65);
+		letter-spacing: 3px;
+		animation: fadeUp 0.7s ease both 0.75s;
+	}
+
+	&__btn {
+		margin-top: 20px;
+		padding: 12px 36px;
+		border: 1.5px solid rgba($cream, .55);
+		color: $cream;
+		font-family: $font-text ;
+		font-size: 12px;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		transition: background $trans;
+		animation: fadeUp 0.7s ease both 0.9s;
+
+		&:hover {
+			background: rgba($cream, .1);
+		}
+	}
+
+	&__hint {
+		position: absolute;
+		bottom: 28px;
+		font-family: $font-text;
+		font-size: 11px;
+		color: rgba($cream, .3);
+		letter-spacing: 1px;
+		animation: fadeUp 0.7s ease both 1.1s;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.splash__label,
+	.splash__names,
+	.splash__divider,
+	.splash__date,
+	.splash__btn,
+	.splash__hint {
+		animation: none;
+		opacity: 1;
+	}
+}
