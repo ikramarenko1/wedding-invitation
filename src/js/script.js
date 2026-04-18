@@ -181,7 +181,7 @@ function setupReveal() {
 
 setupReveal();
 
-const SHEET_URL = 'тут пока заглушка';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbySWhqEn3Lv9FJIG9fj0-EZFLScAwBVty3oM9fZcv9IFv3pSMRHFXDc3nsI5ccPzPOQ/exec';
 
 function showToast(title, text = '') {
 	const toast = document.createElement('div');
