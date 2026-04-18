@@ -1,0 +1,62 @@
+@use "../base/variables" as *;
+
+.timing {
+  width: 393px;
+  height: 404px;
+  margin-top: 30px;
+
+  &__title {
+    font-family: $font-main;
+    font-size: 48px;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__table {
+    width: 100%;
+    height: 345px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("../../img/timing/line.svg") center/451px no-repeat;
+      -webkit-mask-image: var(--timing-mask);
+      mask-image: var(--timing-mask);
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+
+  &__event {
+    position: absolute;
+    display: block;
+    text-align: center;
+    z-index: 1;
+  }
+
+  &__time {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  #t_e-1 {
+    top: 50px;
+    right: 75px;
+  }
+  #t_e-2 {
+    top: 145px;
+    left: 26px;
+  }
+  #t_e-3 {
+    bottom: 45px;
+    right: 65px;
+  }
+}

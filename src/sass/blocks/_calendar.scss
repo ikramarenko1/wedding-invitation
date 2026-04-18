@@ -1,0 +1,95 @@
+@use "../base/variables" as *;
+
+.calendar {
+  width: 393px;
+  height: 616px;
+  padding: 67px 31px;
+  background: url("../../img/calendar/photo.png");
+  background-position: left center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  &__card {
+    width: 331px;
+    height: 482px;
+    background: url("../../img/paper.png") center/cover no-repeat;
+    padding: 48px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__header {
+    white-space: nowrap;
+    color: $olive-dark;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $font-main;
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    font-family: $font-text;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  &__table {
+    font-size: 16px;
+    margin: 0 15px;
+  }
+
+  &__month {
+    text-align: center;
+  }
+
+  &__grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 10px;
+    column-gap: 15px;
+  }
+
+  .cal-cell {
+    font-family: $font-text;
+    font-size: 14px;
+    font-weight: 500;
+    color: $olive-dark;
+    text-align: center;
+    line-height: 20px;
+    padding: 2px 0;
+  }
+
+  .cal-cell--wedding {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cal-cell--wedding .cal-heart {
+    position: absolute;
+    width: 25px;
+    height: 20px;
+  }
+
+  .cal-cell--wedding span {
+    position: relative;
+    z-index: 2;
+    color: #f3f0e9;
+    font-size: 14px;
+  }
+
+  &__footer {
+    text-align: center;
+    font-size: 14px;
+  }
+}

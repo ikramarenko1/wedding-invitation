@@ -1,0 +1,53 @@
+@use "../base/variables" as *;
+
+.dresscode {
+  width: 393px;
+  height: 388px;
+  margin-top: 20px;
+  &__container {
+    max-width: 333px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $font-main;
+    font-size: 48px;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  &__block {
+    width: 333px;
+    height: 259px;
+    margin-top: 20px;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 305px;
+    height: auto;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+  }
+
+  &__text {
+    width: 278px;
+    height: 69px;
+    background: url("../../img/paper.png") center/cover no-repeat;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 8px;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+    rotate: -3.32deg;
+    position: absolute;
+    bottom: 9px;
+    right: 0;
+  }
+}

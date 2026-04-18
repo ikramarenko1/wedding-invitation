@@ -1,0 +1,68 @@
+@use "variables" as *;
+
+@keyframes fadeDown {
+	from { opacity: 0; transform: translateY(-22px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(22px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+	from { opacity: 0; transform: scale(0.9); }
+	to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes digitFlip {
+	0%   { opacity: 1; transform: translateY(0); }
+	45%  { opacity: 0; transform: translateY(-35%); }
+	55%  { opacity: 0; transform: translateY(35%); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+	&__title        { animation: fadeDown 0.7s ease both 0.2s; }
+	&__subtitle     { animation: fadeDown 0.7s ease both 0.4s; }
+	&__photo        { animation: scaleIn  0.8s ease both 0.1s; }
+	&__names-top    { animation: fadeUp   0.7s ease both 0.6s; }
+	&__names-bottom { animation: fadeUp   0.7s ease both 0.8s; }
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity 0.65s ease, transform 0.65s ease;
+
+	&.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	&--left  { transform: translateX(-28px); }
+	&--right { transform: translateX(28px); }
+	&--scale { transform: scale(0.93); }
+
+	&--left.is-visible,
+	&--right.is-visible,
+	&--scale.is-visible { transform: none; }
+
+	@for $i from 1 through 8 {
+		&--delay-#{$i} { transition-delay: #{$i * 0.12}s; }
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero__title, .hero__subtitle, .hero__photo,
+	.hero__names-top, .hero__names-bottom {
+		animation: none;
+		opacity: 1;
+	}
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
